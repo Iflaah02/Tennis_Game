@@ -1,6 +1,6 @@
 
 public class Driver {
-	static int MAX_GAMES = 2;
+	static int MAX_GAMES = 20;
 
 	public static void main(String[] args) {
 		for (int i = 0; i < MAX_GAMES; i++) {
