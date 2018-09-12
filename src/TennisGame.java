@@ -60,7 +60,6 @@ public class TennisGame {
 		} else if (p1 == 1 && p2 == 2) {
 			return "fifteen-thirty";
 		}
-
 		// "40 - 15", "15 - 40"
 		else if (p1 == 3 && p2 == 1) {
 			return "forty-fifteen";
@@ -79,9 +78,11 @@ public class TennisGame {
 		// "game player1"
 		// "game player2"
 		else if (p1 > p2) {
+			scoreFlag=3;
 			return "Player one won the game";
 
 		} else if (p2 > p1) {
+			scoreFlag=3;
 			return "Player two won the game";
 
 		}

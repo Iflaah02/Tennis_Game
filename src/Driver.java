@@ -7,7 +7,7 @@ public class Driver {
 		// TODO Auto-generated method stub
 		Scanner input = new Scanner(System.in);
 		
-		boolean finish = true;
+		int finish = 0;
 		int value=0;
 		TennisGame play = new TennisGame();
 		do {
@@ -20,10 +20,10 @@ public class Driver {
 				
 				play.setP2(play.getP2() + 1);
 			}		
-			
+			System.out.println(play.getScore());
 			//do it
 			
-		} while (finish);
+		} while (finish!=3);
 
 	}
 
