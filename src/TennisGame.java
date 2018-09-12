@@ -8,6 +8,12 @@ public class TennisGame {
 	public TennisGame() {
 		// TO BE IMPLEMENTED
 		
+		
+		System.out.println("I am constructor");
+		
+	}
+
+	public String getScore() {
 		scoreFlag = getRandomNumber();
 		
 		if(scoreFlag == 1) {
@@ -15,11 +21,6 @@ public class TennisGame {
 		} else {
 			p2 = p2 + 1;
 		}
-		System.out.println("I am constructor");
-		
-	}
-
-	public String getScore() {
 		System.out.println("I am method for displaying score");
 		// Here is the format of the scores: "player1Score - player2Score"
 		// "0 - 0"
@@ -82,11 +83,11 @@ public class TennisGame {
 			System.out.println("advantage player2");
 		}
 		// "game player1"
-		if((p1 > 4 )&&(p2 < p1 + 2)) {
+		if((p1 >= 4 )&&(p2 < p1 + 2)) {
 			System.out.println("game player1");
 		}
 		// "game player2"
-		if((p1 < p2 + 2 )&&(p2 > 4)) {
+		if((p1 < p2 + 2 )&&(p2 >= 4)) {
 			System.out.println("game player2");
 		}
 
