@@ -16,6 +16,7 @@ public class Driver {
 			result = rand.nextInt(2) + 1;
 			
 			gameOver = play.getScore(result);
+			
 			System.out.printf("\n");
 			
 		}
