@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class TennisGame {
 	
@@ -8,21 +9,94 @@ public class TennisGame {
 	
 	
 	
-public TennisGame(int p1Score, int p2Score, String p1Name, String p2Name) {
-		super();
+public TennisGame() {
+	super();
 		this.p1Score = p1Score;
 		this.p2Score = p2Score;
 		this.p1Name = p1Name;
 		this.p2Name = p2Name;
 	}
 
-//	public TennisGame(String playerOneName, String playerTwoName) {
-//		this.playerOneName = playerOneName;
-//		this.playerTwoName = playerTwoName;
+public String getScore() {
+
+	if (hasWinner()) {
+		return playerWithHighestScore() + " wins";
+	}
+	
+	if (hasAdvantage()) { 
+		return "Advantage " + playerWithHighestScore(); 
+	}
+	
+	if (isDeuce())
+		return "Deuce";
+	
+	if(p1Score == p2Score) {
+		return translateScore(p1Score) + " all";
+	}
+	
+	return translateScore(p1Score) + "," + translateScore(p2Score);
+}
+
+private boolean isDeuce() {
+	return p1Score >= 3 && p2Score == p1Score;
+}
+
+private String playerWithHighestScore() {
+	if (p1Score > p2Score) {
+		return p1Name;
+	} else {
+		return p2Name;
+	}
+}
+
+private boolean hasWinner() {
+	if(p2Score >= 4 && p2Score >= p1Score + 2 )
+		return true;
+	if(p1Score >= 4 && p1Score >= p2Score + 2)
+		return true;
+	return false;
+}
+
+private boolean hasAdvantage() {
+	if (p2Score >= 4 && p2Score == p1Score + 1)
+		return true;
+	if (p1Score >= 4 && p1Score == p2Score + 1)
+		return true;
+	
+	return false;
+
+}
+
+public void p1Scores() {
+	p1Score++;
+}
+
+public void p2Scores() {
+	p2Score++;
+}
+
+private String translateScore(int score) {
+	switch (score) {
+	case 3:
+		return "Forty";
+	case 2:
+		return "Thirty";
+	case 1: 
+		return "Fifteen";
+	case 0:
+		return "Love";
+	}
+	throw new IllegalArgumentException("Illegal score: " + score);
+}
+
+
+//	public TennisGame(String p1Name, String p2Name) {
+//		this.p1Name = p1Name;
+//		this.p2Name = p2Name;
 //	}
 	
 	
-	public TennisGame() {
+	//public TennisGame() {
 		// TO BE IMPLEMENTED
 		// jebujee
 		/*Wii Tennis 
@@ -36,14 +110,13 @@ the score of the game is "advantage" for the player in the lead
 		
 		
 		
-		System.out.println("I am constructor");
 		
 		
 		
-	}
+	//}
 
-	public String getScore() {
-		System.out.println("I am method for displaying score");
+	//////public String getScore() {
+		//System.out.println("I am method for displaying score");
 		// Here is the format of the scores: "player1Score - player2Score"
 		// "0 - 0"
 		// "15 - 15"
@@ -60,6 +133,6 @@ the score of the game is "advantage" for the player in the lead
 		// "game player2"
 
 		// TO BE IMPLEMENTED
-		return "";
-	}
+//		return "";
+//	}
 }
