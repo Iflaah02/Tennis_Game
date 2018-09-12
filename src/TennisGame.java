@@ -15,12 +15,13 @@ public class TennisGame {
 		scoreFlag = 0;
 		while (scoreFlag < 5) {
 			playRound();
+			getScore();
 		}	
 	}
 	
 	public void playRound() {
 		Random rand = new Random();
-		point = rand.nextInt(1); // who won an exchange is determined by a random integer.
+		point = rand.nextInt(2); // who won an exchange is determined by a random integer.
 		
 		scoreFlag++; // update number of round played
 		
@@ -62,33 +63,28 @@ public class TennisGame {
 		// "game player2"
 
 		// TO BE IMPLEMENTED
-		if (scoreFlag < 5) {
-			System.out.println(p1+" - "+p2);
-		}
 		
 		if(p1 == p2 && scoreFlag == 4) {
+			System.out.println(p1+" - "+p2);
 			System.out.println("deuce");
-			// stop playing
 		}
 		else if (scoreFlag < 5){
 			if (p1-p2 == 55) {
 				System.out.println("game player1");
-				// stop playing
 			}
 			else if (p2-p1 == 55) {
 				System.out.println("game player2");
-				// stop playing
 			}
 			else if (p1-p2 == 10) {
 				System.out.println("advantage player1");
-				// stop playing
+			}
+			else if (p2-p1 == 10){
+				System.out.println("advantage player2");
 			}
 			else {
-				System.out.println("advantage player2");
-				// stop playing
+				System.out.println(p1+" - "+p2);
 			}
 		}
-		
 		
 		return "";
 	}
