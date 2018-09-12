@@ -1,34 +1,68 @@
-
 public class TennisGame {
 	
 	private int p1;
 	private int p2;
-	private int scoreFlag;
+	private String scoreString;
+	private Boolean gameOver;
 	
 	public TennisGame() {
-		// TO BE IMPLEMENTED
-		System.out.println("I am constructor");
+		this.p1 = 0;
+		this.p2 = 0;
+		this.scoreString = "";
+		this.gameOver = false;
+	}
+	
+	public void setPlayerOneScore(int score) {
+		this.p1 = score;
+	}
+	
+	public void setPlayerTwoScore(int score) {
+		this.p2 = score;
+	}
+	
+	public String getScoreString(int score) throws TennisGameException {
+		switch (score) {
+			case 0:
+				scoreString = "0";
+				break;
+			case 1:
+				scoreString = "15";
+				break;
+			case 2:
+				scoreString = "30";
+				break;
+			case 3:
+				scoreString = "40";
+				break;
+			default:
+				throw new TennisGameException("invalid score");
+		}
 		
+		return scoreString;
 	}
 
 	public String getScore() {
-		System.out.println("I am method for displaying score");
-		// Here is the format of the scores: "player1Score - player2Score"
-		// "0 - 0"
-		// "15 - 15"
-		// "30 - 30"
-		// "deuce"
-		// "15 - 0", "0 - 15"
-		// "30 - 0", "0 - 30"
-		// "40 - 0", "0 - 40"
-		// "30 - 15", "15 - 30"
-		// "40 - 15", "15 - 40"
-		// "advantage player1"
-		// "advantage player2"
-		// "game player1"
-		// "game player2"
-
-		// TO BE IMPLEMENTED
-		return "";
+		if (this.p1 >= 4 && this.p1 - this.p2 >= 2) {
+			return "game player1";
+		} else if (this.p2 >= 4 && this.p2 - this.p1 >= 2) {
+			return "game player2";
+		} else if (this.p1 >= 3 && this.p2 >= 3 && this.p1 == this.p2) {
+			return "deuce";
+		} else if (this.p1 >= 3 && this.p2 >= 3 && this.p1 - this.p2 == 1) {
+			return "advantage player1";
+		} else if (this.p2 >= 3 && this.p1 >= 3 && this.p2 - this.p1 == 1) {
+			return "advantage player2";
+		} else {
+			String p1Str = "";
+			String p2Str = "";
+			try {
+				 p1Str = this.getScoreString(this.p1);
+				 p2Str = this.getScoreString(this.p2);
+			} catch (TennisGameException tge) {
+				System.out.println("Invalid score value");
+				System.exit(1);
+			}
+			return p1Str + " - " + p2Str;
+		}
 	}
 }
