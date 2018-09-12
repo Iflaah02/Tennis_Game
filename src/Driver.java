@@ -17,7 +17,9 @@ public class Driver {
 		    	Play.setP2(Play.getP2() +1);
 		    else
 		    	System.out.println ("Invalid input");
+		    System.out.println(Play.getScore());
 		    }
+		
 		
 		
 	}

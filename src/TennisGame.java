@@ -56,6 +56,11 @@ public class TennisGame {
 		
 		else if(p1==1 && p2==3)
 			return "Fifteen-Forty";	
+		else if(p1==2 && p2==3)
+			return "Thirty-Forty";
+		
+		else if(p1==3 && p2==2)
+			return "Forty-thirty";	
 		// "advantage player1"
 		else if(p1>p2 && p2>=3)
 			return "advantage player1";	
