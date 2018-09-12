@@ -16,7 +16,7 @@ public class TennisGame {
 //plays until either player has 4 score and difference is at least 2
 		while( ((p1 < 4 || p2 < 4)) || difference < 2  
              )
-		{
+		{ 
 		 //a bit kludge, but hey, it works!	
 		 if(score == "Player one wins!" || score == "Player two wins!")
 		 break;
