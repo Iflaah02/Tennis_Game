@@ -8,9 +8,7 @@ public class TennisGame {
 	private int p2Score;
 	
 	public TennisGame() {
-		// TO BE IMPLEMENTED
 		System.out.println("I am constructor");
-		
 	}
 	
 	public void playerATurn(int points) {
