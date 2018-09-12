@@ -73,6 +73,14 @@ public class TennisGame {
 		return "";
 	}
 
+	public int getScoreFlag() {
+		return scoreFlag;
+	}
+
+	public void setScoreFlag(int scoreFlag) {
+		this.scoreFlag = scoreFlag;
+	}
+
 	public int getP1() {
 		return p1;
 	}

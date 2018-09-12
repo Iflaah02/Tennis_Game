@@ -4,19 +4,19 @@ public class Driver {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Scanner input=new Scanner (System.in);
+		Scanner Input=new Scanner (System.in);
+		TennisGame Play = new TennisGame();
 		
-		boolean finish=false;
-		int value=0;
-		TennisGame play = new TennisGame();
-		while(!finish)
+		while(Play.getScoreFlag()==0)
 		{
 		    System.out.println("Player one=1, Player two=2");
-			value=input.nextInt();
+		    int value= Input.nextInt();
 		    if(value==1)
-		    	{
-		    	
-		    	}
+		    	Play.setP1(Play.getP1() +1);
+		    else if(value==2)
+		    	Play.setP2(Play.getP2() +1);
+		    else
+		    	System.out.println ("Invalid input");
 		    }
 		
 		
