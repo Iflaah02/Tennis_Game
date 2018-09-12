@@ -1,10 +1,13 @@
 
 public class Driver {
+	static int MAX_GAMES = 2;
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		TennisGame play = new TennisGame();
-		play.getScore();
+		for (int i = 0; i < MAX_GAMES; i++) {
+			System.out.println("\n----New Game----");
+			TennisGame play = new TennisGame();
+			play.playGame();
+		}
 	}
 
 }
