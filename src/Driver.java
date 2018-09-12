@@ -20,6 +20,7 @@ public class Driver {
 				
 				play.setP2(play.getP2() + 1);
 			}		
+			finish=play.getScoreFlag();
 			System.out.println(play.getScore());
 			//do it
 			
