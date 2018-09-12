@@ -6,13 +6,11 @@ public class TennisGame {
 	private int scoreFlag;
 	
 	public TennisGame() {
-		// TO BE IMPLEMENTED
-		System.out.println("I am constructor");
-		
+		p1 = 0;
+		p2 = 0;
 	}
 
 	public String getScore() {
-		System.out.println("I am method for displaying score");
 		// Here is the format of the scores: "player1Score - player2Score"
 		// "0 - 0"
 		// "15 - 15"
@@ -27,8 +25,55 @@ public class TennisGame {
 		// "advantage player2"
 		// "game player1"
 		// "game player2"
+		if(p1 <= 3 && p2 <= 3) {
+			String score = getPlayerScore(p1);
 
-		// TO BE IMPLEMENTED
+			score += "-";
+            score += getPlayerScore(p2);
+            return score;
+		} else {
+			if(p1 == p2) {
+				return "deuce";
+			}
+
+			if(p1 - p2 >= 2) {
+				return "game player1";
+			}
+			if(p2 - p1 >= 2) {
+				return "game player2";
+			}
+
+			if(p1 - p2 == 1) {
+			    return "advantage player1";
+            }
+            if(p2 - p1 == 1) {
+			    return "advantage player1";
+            }
+
+
+		}
 		return "";
 	}
+
+	public void playerOneScore() {
+		p1++;
+	}
+
+	public void playerTwoScores() {
+		p2++;
+	}
+
+	private String getPlayerScore(int playerScore) {
+        switch(playerScore) {
+            case 0:
+                return "love";
+            case 1:
+                return "fifteen";
+            case 2:
+                return "thirty";
+            case 3:
+                return "forty";
+        }
+        return "";
+    }
 }
