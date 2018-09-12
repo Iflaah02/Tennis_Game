@@ -1,7 +1,7 @@
 
 public class Driver {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws TennisGameException {
 		// TODO Auto-generated method stub
 		TennisGame play = new TennisGame();
 		play.getScore();
