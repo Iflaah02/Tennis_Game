@@ -68,10 +68,10 @@ public class TennisGame {
 			return "advantage player2";	
 		// "advantage player2"
 		// "game player1"
-		else if(p1>p2+1)
+		else if(p1>p2+2)
 			return "Player 1 won";
 		// "game player2"
-		else if(p2>p1+1)
+		else if(p2>p1+2)
 			return "Player 2 won";
 		// TO BE IMPLEMENTED
 		
