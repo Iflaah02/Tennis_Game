@@ -1,19 +1,22 @@
 
 public class TennisGame {
 	
-	private int p1 = 0;
-	private int p2 = 0;
+	private int p1;
+	private int p2;
 	private int scoreFlag = 0;
 	
 	public TennisGame() {
 		// TO BE IMPLEMENTED
-		
-		System.out.println("I am constructor");
+		p1 = 0;
+		p2 = 0;
+		System.out.println("1 = point to player1");
+		System.out.println("2 = point to player2");
+		System.out.println("0 = End Game");
 		
 	}
 
 	public String getScore() {
-		System.out.println("I am method for displaying score");
+		//System.out.println("I am method for displaying score");
 		// Here is the format of the scores: "player1Score - player2Score"
 		// "0 - 0"
 		// "15 - 15"
@@ -29,23 +32,24 @@ public class TennisGame {
 		// "game player1"
 		// "game player2"
 
-		// TO BE IMPLEMENTED
+		if(scoreFlag == 1) {
+			resetPoints();
+			scoreFlag=0;		
+		}
 		
 		if (hasWinner()) {
-			return playerWithHighestScore() + " wins";
+			scoreFlag = 1;
+			return playerWithHighestScore() + " wins. Press any key and Enter to start new game";
 		}
 		
 		if (hasAdvantage()) { 
 			return "Advantage " + playerWithHighestScore(); 
 		}
 		
-		if (isDeuce())
+		if (isDeuce()) {
 			return "Deuce";
-		
-		if(p1 == p2) {
-			return translateScore(p1) + " all";
 		}
-		
+				
 		return translateScore(p1) + " - " + translateScore(p2);
 		
 		
@@ -86,6 +90,11 @@ public class TennisGame {
 
 	public void p2s() {
 		p2++;
+	}
+	
+	public void resetPoints() {
+		p1=0;
+		p2=0;
 	}
 
 	private String translateScore(int score) {

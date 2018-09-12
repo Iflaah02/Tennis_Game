@@ -3,27 +3,41 @@ public class Driver {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
+		boolean running = true;
 		Scanner scan= new Scanner(System.in);
 
 	    //For string
 
-	    String text= scan.nextLine();
+	    int readed;
 
-	    System.out.println(text);
+	    //System.out.println(text);
 
 	    //for int
-
-	    int num= scan.nextInt();
-
+	    int a =0;
+	    //int num= scan.nextInt();
+	    
 		TennisGame play = new TennisGame();
-		if (num == 1) {
+		while(running) {
+			//a = Integer.parseInt(scan.nextLine());
+			readed= scan.nextInt();
+			System.out.println(readed);
+		if (readed == 1) {
 			play.p1s();
+			System.out.println(play.getScore());
+			
 		}
-		if (num == 2) {
+		if (readed == 2) {
 			play.p2s();
+			System.out.println(play.getScore());
+			
 		}
-		play.getScore();
+		if (readed == 0) {
+			running = false;
+			System.out.println("Game end");
+		}
+		
+		
+		}
 	}
 
 }
