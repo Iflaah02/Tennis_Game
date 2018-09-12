@@ -156,7 +156,7 @@ public class TennisGame {
 			break;
 		default:
 			throw new TennisGameException();
-		}
+		} //
 		
 		return p1Score + delim + p2Score;
 	}
