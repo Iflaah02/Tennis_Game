@@ -9,11 +9,10 @@ public class TennisGame {
 	
 	public TennisGame() {
 		// TO BE IMPLEMENTED
-		System.out.println("I am constructor");
 		p1 = 0;
 		p2 = 0;
 		scoreFlag = 0;
-		while (scoreFlag < 5) {
+		while (scoreFlag <= 5) {
 			playRound();
 			getScore();
 		}	
@@ -67,19 +66,24 @@ public class TennisGame {
 		if(p1 == p2 && scoreFlag == 4) {
 			System.out.println(p1+" - "+p2);
 			System.out.println("deuce");
+			scoreFlag = 10; // make-shift solution to avoid repeating the final score
 		}
-		else if (scoreFlag < 5){
+		else if (scoreFlag <= 5){
 			if (p1-p2 == 55) {
 				System.out.println("game player1");
+				scoreFlag = 10; // make-shift solution to avoid repeating the final score
 			}
 			else if (p2-p1 == 55) {
 				System.out.println("game player2");
+				scoreFlag = 10; // make-shift solution to avoid repeating the final score
 			}
-			else if (p1-p2 == 10) {
+			else if (p1-p2 == 10 || p1-p2 == 40) {
 				System.out.println("advantage player1");
+				scoreFlag = 10; // make-shift solution to avoid repeating the final score
 			}
-			else if (p2-p1 == 10){
+			else if (p2-p1 == 10 || p2-p1 == 40){
 				System.out.println("advantage player2");
+				scoreFlag = 10; // make-shift solution to avoid repeating the final score
 			}
 			else {
 				System.out.println(p1+" - "+p2);
