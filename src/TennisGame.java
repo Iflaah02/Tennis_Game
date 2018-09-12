@@ -47,6 +47,7 @@ private String playerWithHighestScore() {
 	} else {
 		return p2Name;
 	}
+	System.out.print("change");
 }
 
 private boolean hasWinner() {
