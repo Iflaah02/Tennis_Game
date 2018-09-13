@@ -5,12 +5,12 @@ public class TennisGame {
 	// if used, this was probably meant to use for advantage, but had a different approach int scoreFlag;
 	
 	public TennisGame() {
-		// TO BE IMPLEMENTED
+		// Constructor
 		p1=0;
 		p2=0;
 		
 	}
-
+//setters
 	public void setP1 (int a){
 	p1 = a;	
 	}
@@ -18,7 +18,7 @@ public class TennisGame {
 	public void setP2 (int b) {
 	p2 = b;
 	}
-	
+//getters	
 	public int getP1 ()
 	{
 	return p1;	
