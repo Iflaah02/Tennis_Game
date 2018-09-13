@@ -1,5 +1,5 @@
 
-public class TennisGame {
+ public class TennisGame {
 	
 	private int p1;
 	private int p2;
@@ -7,11 +7,15 @@ public class TennisGame {
 	
 	public TennisGame() {
 		// TO BE IMPLEMENTED
-		System.out.println("I am constructor");
-		
+		this.p1 = p1;
+        this.p2 = p2;
+        this.scoreFlag = scoreFlag;
+		System.out.println("I am not a programmer");	
 	}
 
 	public String getScore() {
+		
+		System.out.println("I am trying to figure out how to solve it");
 		System.out.println("I am method for displaying score");
 		// Here is the format of the scores: "player1Score - player2Score"
 		// "0 - 0"
@@ -27,8 +31,22 @@ public class TennisGame {
 		// "advantage player2"
 		// "game player1"
 		// "game player2"
-
+		
+		if (p1 >= 3 && p2 >= 3) {
+            if (Math.abs(p2 - p1) >= 2) {
+                return  "p1 won";
+            } else if (p1== p2) {
+                return "deuce";
+            } else {
+                return "advantage ";
+            }
+        } else {
+            return "";
+            
+        }
+		
 		// TO BE IMPLEMENTED
-		return "";
+		// return "";
 	}
-}
+} 
+
