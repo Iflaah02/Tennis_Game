@@ -1,34 +1,60 @@
 
 public class TennisGame {
-	
+
 	private int p1;
 	private int p2;
-	private int scoreFlag;
-	
-	public TennisGame() {
-		// TO BE IMPLEMENTED
-		System.out.println("I am constructor");
-		
+
+	public TennisGame(int p1, int p2) {
+		this.p1 = p1;
+		this.p2 = p2;
 	}
 
-	public String getScore() {
-		System.out.println("I am method for displaying score");
-		// Here is the format of the scores: "player1Score - player2Score"
-		// "0 - 0"
-		// "15 - 15"
-		// "30 - 30"
-		// "deuce"
-		// "15 - 0", "0 - 15"
-		// "30 - 0", "0 - 30"
-		// "40 - 0", "0 - 40"
-		// "30 - 15", "15 - 30"
-		// "40 - 15", "15 - 40"
-		// "advantage player1"
-		// "advantage player2"
-		// "game player1"
-		// "game player2"
+	public String getScore() throws TennisGameException {
+		// 0 to 3
+		if (p1 <= 3 && p2 <= 3) {
+			if (p1 == 3 && p2 == 3) {
+				return "deuce";
+			}
+			return getScoreName(p1) + " - " + getScoreName(p2);
+		}
 
-		// TO BE IMPLEMENTED
-		return "";
+		// deuce
+		if (p1 == p2) {
+			return "deuce";
+		}
+
+		// advantage
+		// -1 advantage to player 2.
+		int diff = p1 - p2;
+		switch (diff) {
+		case 1:
+			return "advantage player1";
+		case -1:
+			return "advantage player2";
+		}
+
+		if (diff <= -2) {
+			return "game player2";
+		}
+		if (diff >= 2) {
+			return "game player1";
+		}
+
+		throw new TennisGameException();
+	}
+
+	private String getScoreName(int score) throws TennisGameException {
+		switch (score) {
+		case 0:
+			return "0";
+		case 1:
+			return "15";
+		case 2:
+			return "30";
+		case 3:
+			return "40";
+		default:
+			throw new TennisGameException();
+		}
 	}
 }
