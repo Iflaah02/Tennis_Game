@@ -3,34 +3,19 @@ public class TennisGame {
 	
 	private int p1;
 	private int p2;
-	private int scoreFlag = 4;
+	private int scoreFlag = 0;
 	
 	public TennisGame() {
 		// TO BE IMPLEMENTED
-		System.out.println("I am constructor"); {  
-			public static void main(String[] args); {  
-			    int p1 = 1;  
-			    if(p1 != 0);
-			    {  
-			        System.out.print("15 - 0");
-			    
-			    	System.out.println("0 - 15");
-			    	
-			    }  
-			}  
-		}  
-		
-		/* if p1 = 1
-		{
-		System.out.println("15 - 0");
-		else p1 = 1
-		System.out.println("0 - 15");
-		} */
+		p1 = 0;
+		p2 = 0;
+		System.out.println("1 = point to player1");
+		System.out.println("2 = point to player2");
+		System.out.println("3 = Game Ended");
 		
 	}
-
-	public String getScore() {
-		System.out.println("I am method for displaying score");
+ 	public String getScore() {
+		//System.out.println("I am method for displaying score");
 		// Here is the format of the scores: "player1Score - player2Score"
 		// "0 - 0"
 		// "15 - 15"
@@ -45,8 +30,26 @@ public class TennisGame {
 		// "advantage player2"
 		// "game player1"
 		// "game player2"
-
-		// TO BE IMPLEMENTED
-		return "Tennisgame";
+ 		if(scoreFlag == 1) {
+			resetPoints();
+			scoreFlag=0;		
+		}
+	
+	public void resetPoints() {
+		p1=0;
+		p2=0;
+	}
+ 	private String translateScore(int score) {
+		switch (score) {
+		case 3:
+			return "Forty";
+		case 2:
+			return "Thirty";
+		case 1: 
+			return "Fifteen";
+		case 0:
+			return "Null";
+		}
+		throw new IllegalArgumentException("Illegal score: " + score);
 	}
 }
