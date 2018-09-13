@@ -1,9 +1,10 @@
 
 public class TennisGame {
 	
-	private int p1;
-	private int p2;
-	private int scoreFlag;
+	private int p1 = 0;
+	private int p2 = 0;
+	int piste = 15;
+	private int scoreFlag = 4;
 	
 	public TennisGame() {
 		// TO BE IMPLEMENTED
@@ -13,6 +14,24 @@ public class TennisGame {
 
 	public String getScore() {
 		System.out.println("I am method for displaying score");
+		
+		//for (int p1 = 0; < scoreFlag; p1++)
+		int p1 = 0;
+		int p2 = 0;
+		int piste = 15;
+
+		System.out.println (p1 + " - " + p2 );	
+		
+		int p1  = 0;
+		int p2 = 0;	
+		
+		System.out.println (p1);
+		 p1=+p1+piste;
+		 p2=+p2+piste;
+		
+			System.out.println (p1 + " - " + p2 );	
+				
+			
 		// Here is the format of the scores: "player1Score - player2Score"
 		// "0 - 0"
 		// "15 - 15"
