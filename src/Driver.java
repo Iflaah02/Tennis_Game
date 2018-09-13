@@ -11,6 +11,7 @@ public class Driver {
         Scanner scanner = new Scanner(System.in);
 		
 		while (!play.gameHasEnded()) {
+			System.out.print("> ");
             String line = scanner.nextLine().trim();
             
             if (line.equals("1")) {
