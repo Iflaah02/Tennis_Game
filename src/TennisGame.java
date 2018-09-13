@@ -12,7 +12,14 @@ public class TennisGame {
 	}
 
 	public String getScore() {
+		
 		System.out.println("I am method for displaying score");
+		p1 = 0;
+		p2 = 0;
+		
+		System.out.println("Beggining of the game -> p1= " +p1+ " vs p2= "+p2);
+		
+		
 		// Here is the format of the scores: "player1Score - player2Score"
 		// "0 - 0"
 		// "15 - 15"
