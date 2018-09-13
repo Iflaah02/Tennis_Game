@@ -7,12 +7,100 @@ public class TennisGame {
 	
 	public TennisGame() {
 		// TO BE IMPLEMENTED
-		System.out.println("I am constructor");
+		p1 = 0;
+		p2 = 0;
+		System.out.println("The game begins");
 		
+	}
+	
+	public void updateScore() {
+		p1++;
 	}
 
 	public String getScore() {
-		System.out.println("I am method for displaying score");
+		System.out.println("The score is:");
+		
+		switch (p1) {  
+
+			case 0:
+					switch (p2) {
+					case 0:
+							return "0 - 0";
+					case 1:
+							return "0 - 15";
+					case 2:
+							return "0 - 30";
+					case 3:
+							return "0 - 40";
+					case 4:
+							return "game player2";	
+					}
+					break;
+				
+			case 1:
+					switch (p2) {
+					case 0:
+							return "15 - 0";
+					case 1:
+							return "15 - 15";
+					case 2:
+							return "15 - 30";
+					case 3:
+							return "15 - 40";
+					case 4:
+							return "game player2";
+					
+					}
+					break;
+			
+			case 2:
+					switch (p2) {
+					case 0:
+						return "30 - 0";
+					case 1:
+						return "30 - 15";
+					case 2:
+						return "30 - 30";
+					case 3:
+						return "30 - 40";
+					case 4:
+						return "game player2";
+			
+					}
+					break;
+					
+			case 3:
+					switch (p2) {
+					case 0:
+						return "40 - 0";
+					case 1:
+						return "40 - 15";
+					case 2:
+						return "40 - 30";
+					case 3:
+						return "deuce";
+					case 4:
+						return "Advantage player2";
+	
+					}
+					break;
+					
+			case 4:
+					switch (p2) {
+					case 0:
+						return "game player1";
+					case 1:
+						return "game player1";
+					case 2:
+						return "game player1";
+					case 3:
+						return "game player1";
+					case 4:
+						return "deuce";
+					}
+			
+	
+		}
 		// Here is the format of the scores: "player1Score - player2Score"
 		// "0 - 0"
 		// "15 - 15"
@@ -29,6 +117,6 @@ public class TennisGame {
 		// "game player2"
 
 		// TO BE IMPLEMENTED
-		return "";
+		return "virhe, ei pisteita";
 	}
 }
