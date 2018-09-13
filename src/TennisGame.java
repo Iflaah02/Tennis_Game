@@ -49,7 +49,7 @@ public class TennisGame {
 		Scanner reader = new Scanner(System.in);  // Reading from System.in
 		System.out.println("Which player will win? ");
 		int n = reader.nextInt();
-		System.out.println("Player "+n+" won that one");
+		System.out.println("Player "+n+" won that one!");
 		return n;
 		
 	}
