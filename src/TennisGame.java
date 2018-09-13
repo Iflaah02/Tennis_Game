@@ -22,7 +22,7 @@ public class TennisGame {
 		
 		// "0 - 0"
 		if(p1 == 0 && p2 == 0) {
-			score = new String("0 - 0"); 
+			score = "0 - 0"; 
 		}// "15 - 15"
 		else if(p1 == 1 & p2 == 1) {
 			score = "15 - 15"; 
@@ -35,7 +35,6 @@ public class TennisGame {
 		}// "15 - 0", "0 - 15"
 		else if(p1 == 1 && p2 == 0)
 		{
-			//score = new String("15 - 0"); 
 			score = "15 - 0"; 
 		}
 		else if(p1 == 0 && p2 == 1)
@@ -94,19 +93,17 @@ public class TennisGame {
 		{
 			scoreFlag = 1; 
 			score = "game player1";
-		
 		}// "game player2"
 		else if(p2 - p1 > 1 && p2 > 3)
 		{
-			score = "game player2";
 			scoreFlag = 1; 
+			score = "game player2";
 		}
 		else if(p1 == p2)
 		{
 			score = "deuce"; 
 		}
 
-		
 		// TO BE IMPLEMENTED
 		return score;
 	}
