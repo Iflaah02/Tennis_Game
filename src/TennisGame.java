@@ -7,7 +7,25 @@ public class TennisGame {
 	
 	public TennisGame() {
 		// TO BE IMPLEMENTED
-		System.out.println("I am constructor");
+		System.out.println("I am constructor"); {  
+			public static void main(String[] args); {  
+			    int p1 = 1;  
+			    if(p1 != 0);
+			    {  
+			        System.out.print("15 - 0");
+			    
+			    	System.out.println("0 - 15");
+			    	
+			    }  
+			}  
+		}  
+		
+		/* if p1 = 1
+		{
+		System.out.println("15 - 0");
+		else p1 = 1
+		System.out.println("0 - 15");
+		} */
 		
 	}
 
@@ -29,6 +47,6 @@ public class TennisGame {
 		// "game player2"
 
 		// TO BE IMPLEMENTED
-		return "";
+		return "Tennisgame";
 	}
 }
