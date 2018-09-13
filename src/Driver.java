@@ -3,7 +3,6 @@ public class Driver
 	public static void main(String[] args)
 	{
 		//Hard-coding was selected to make it easy to show that each situation can be satisfied.
-		
 		//Player 2 wins easily
 		TennisGame play = new TennisGame();
 		play.getScore();

@@ -4,8 +4,6 @@ public class TennisGame
 	private int twoScore=0;
 	public TennisGame()
 	{
-		// TO BE IMPLEMENTED
-		//System.out.println("I am constructor");
 		this.oneScore=0;
 		this.twoScore=0;
 	}
