@@ -19,6 +19,14 @@ public class TennisGame {
 			p2++;
 		}
 	}
+    
+    public void addWinForPlayer1() {
+        p1++;
+    }
+    
+    public void addWinForPlayer2() {
+        p2++;
+    }
 	
 	public boolean gameHasEnded() {
 		if (p1 <= 3 && p2 <= 3) {
