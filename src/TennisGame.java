@@ -1,3 +1,5 @@
+import java.util.Arrays;
+import java.util.List;
 
 public class TennisGame {
 	
@@ -21,8 +23,21 @@ public class TennisGame {
 	public String getScore() {
 		String score = null;
 		int flag = this.getFlag();
-		String[] scoreArray = {"0 - 0", "15 - 0", "0 - 15", "15 - 15"};
+		List<String> pointsDescription = Arrays.asList("love", "fifteen", "thirty", "forty");
 		System.out.println("I am method for displaying score");
+
+	        if (p1 >= 3 && p2 >= 3) {
+	            if (p2 - p1 >= 2) {
+	                return getLeadPlayer().getName() + " won"; //!!
+	            } else if (p1 == p2) {
+	                return "deuce";
+	            } else {
+	                return "advantage " + getLeadPlayer().getName(); //!!
+	            }
+	        } else {
+	            return player1.getScoreDescription() + ", " + player2.getScoreDescription(); //!!
+	        }
+	    
 		// Here is the format of the scores: "player1Score - player2Score"
 		// "0 - 0", scoreFlag 0
 		
