@@ -1,34 +1,86 @@
 
 public class TennisGame {
 	
-	private int p1;
-	private int p2;
-	private int scoreFlag;
-	
+	private int player1Points = 0;
+	private int player2Points = 0;
+		
 	public TennisGame() {
-		// TO BE IMPLEMENTED
-		System.out.println("I am constructor");
 		
 	}
 
+	public void increasePlayer1Points() {
+		player1Points++;
+	}
+	
+	public void increasePlayer2Points() {
+		player2Points++;
+	}
+	
+	private String calculateScore(int points) {
+		String scoreString = "0";
+		switch (points) {
+		case 0:
+			scoreString = "0";
+			break;
+		case 1: 
+			scoreString = "15";
+			break;
+		case 2:
+			scoreString = "30";
+			break;
+		case 3:
+			scoreString = "40";
+			break;
+		}
+		
+		return scoreString;
+	}
+	
 	public String getScore() {
-		System.out.println("I am method for displaying score");
-		// Here is the format of the scores: "player1Score - player2Score"
-		// "0 - 0"
-		// "15 - 15"
-		// "30 - 30"
-		// "deuce"
-		// "15 - 0", "0 - 15"
-		// "30 - 0", "0 - 30"
-		// "40 - 0", "0 - 40"
-		// "30 - 15", "15 - 30"
-		// "40 - 15", "15 - 40"
-		// "advantage player1"
-		// "advantage player2"
-		// "game player1"
-		// "game player2"
+				
+		if (player1Points == player2Points && player1Points >= 3) {
+			System.out.println("deuce");
+			return "";
+		}
+			
+		
+		if (player1Points >= 3 && player2Points >= 3) {
+			if (player1Points == (player2Points + 1)) {
+				System.out.println("advantage player1");
+				return "";
+			}
+			
+			if (player2Points == (player1Points + 1)) {
+				System.out.println("advantage player2");
+				return "";
+			}
+			
+			if (player1Points == (player2Points + 2)) {
+				System.out.println("game player1");
+				return "";
+			}
+			
+			if (player2Points == (player1Points + 2)) {
+				System.out.println("game player2");
+				return "";
+			}
 
-		// TO BE IMPLEMENTED
+		}
+		
+		if (player1Points == 4) {
+			System.out.println("game player1");
+			return "";
+		}
+		
+		if (player2Points == 4) {
+			System.out.println("game player2");
+			return "";
+		}
+		
+		System.out.print(calculateScore(player1Points));
+		System.out.print(" - ");
+		System.out.println(calculateScore(player2Points));
+		
 		return "";
 	}
 }
