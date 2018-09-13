@@ -1,14 +1,27 @@
+import java.io.Console;
+import java.util.Scanner;
 
 public class TennisGame {
 	
 	private int p1;
 	private int p2;
 	private int scoreFlag;
+	//public Console console;
 	
 	public TennisGame() {
 		// TO BE IMPLEMENTED
 		System.out.println("I am constructor");
 		
+	}
+	
+	public void RunGame() {
+		boolean gameIsOn = true;
+		
+		while(gameIsOn) {
+			
+			this.getInput();
+		}
+			
 	}
 
 	public String getScore() {
@@ -31,4 +44,14 @@ public class TennisGame {
 		// TO BE IMPLEMENTED
 		return "";
 	}
+	
+	public int getInput() {
+		Scanner reader = new Scanner(System.in);  // Reading from System.in
+		System.out.println("Which player will win? ");
+		int n = reader.nextInt();
+		System.out.println("Player "+n+" won that one");
+		return n;
+		
+	}
+	
 }
