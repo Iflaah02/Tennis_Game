@@ -1,152 +1,122 @@
-import java.io.*;
 
 public class TennisGame {
 	
+	private int point;
 	private int p1;
-	private int p1_temp;
 	private int p2;
-	private int p2_temp;
 	private int scoreFlag;
+	private int winner;
+	private boolean advp1;
+	private boolean advp2;
+	private String player1;
+	private String player2;
 	private String score;
-	private String scoreP1;
-	private String scoreP2;
-	private boolean adv1;
-	private boolean adv2;
-	private boolean gameover;
 	
 	public TennisGame(){
 		// TO BE IMPLEMENTED
-		System.out.println("I am constructor");
-		gameover = false;
-		
-        //InputStreamReader in = new InputStreamReader(System.in);
-        //BufferedReader br = new BufferedReader(in);		
-		
-		
-		//System.out.println("Point to:");
-		//String point=br.readLine();
-		
-		pointP1();
-		gameEnd();
-		pointP1();
-		pointP1();
-		pointP2();
-		pointP2();
-		
+		//default names for players
+		this.player1 = "Player 1";
+		this.player2 = "Player 2";
+		//and let's be sure the score is 0-0 at the start
+		this.p1 = 0;
+		this.p2 = 0;
+		this.scoreFlag = 0;
+		this.winner = 0;
 	}
 
+	//player1 gets a point
 	public void pointP1() {
-		switch(p1) {
-			case 0:
-				p1_temp = 15;
-				break;
-			case 15:
-				p1_temp = 30;
-				break;
-			case 30:
-				p1_temp = 40;
-				break;
-		}
-		p1 = p1_temp;
-		System.out.println(p1);
+		System.out.println("Point for player1!");
+		p1++;
 	}
 	
+	//player2 gets a point
 	public void pointP2() {
-		switch(p2) {
-		case 0:
-			p2_temp = 15;
-			break;
-		case 15:
-			p2_temp = 30;
-			break;
-		case 30:
-			p2_temp = 40;
-			break;
-		}
-		p2 = p2_temp;
-		System.out.println(p2);
+		System.out.println("Point for player2!");
+		p2++;
 	}
 	
 	public String getScore() {
 		//System.out.println("I am method for displaying score");
 		// Here is the format of the scores: "player1Score - player2Score"
+		if (deuce())
+			return "deuce";
+		if (advantage())
+			return ("advantage player " + scoreFlag);
+		if (gameEnd()){
+			return ("Player " + winner + " wins!");
+		}
+		else
+			return(player1 + " " + scoreBoard(p1) + "-" + scoreBoard(p2) + " " + player2);
 		
-		//draws
-		/*
-		if (p1==0 && p2==0)
-			score = "love-love)";
-		else if (p1==15 && p2==15)
-			score = "fifteen-fifteen";
-		else if (p1==30 && p2==30)
-			score = "thirteen-thirteen";
-		else if (p1==40 && p2==40)
-			score = "deuce";
-		
-		if (score == "deuce")
-			
-		// "30 - 30"
-		// "deuce"
-		
-		//leading
-		if (p1 == 15 && p2 == 0 || p1 == 0 && p2 == 15)
-			score = (p1 + "-" + p2);
-		
-		// "15 - 0", "0 - 15"
-
-		if (p1 == 30 && p2 == 0 || p1 == 0 && p2 == 30)
-			score = (p1 + "-" + p2);		
-		
-		// "30 - 0", "0 - 30"
-
-		if (p1 == 40 && p2 == 0 || p1 == 0 && p2 == 40)
-			score = (p1 + "-" + p2);
-		
-		if (p1 > 40 && p2 < 40)
-			score = ("game player1");
-		
-		if (p2 > 40 && p1 < 40)
-			score = ("game player2");
-		
-		
-		// "40 - 0", "0 - 40"
-
-		
-		if (p1 == 30 && p2 == 15 || p1 == 15 && p2 == 30)
-			score = (p1 + "-" + p2);		
-		// "30 - 15", "15 - 30"
-
-		if (p1 == 40 && p2 == 15 || p1 == 15 && p2 == 40)
-			score = (p1 + "-" + p2);		
-		// "40 - 15", "15 - 40"
-
-		if (p1 == 40 && p2 == 30 || p1 == 30 && p2 == 40)
-			score = (p1 + "-" + p2);		
-		
-		//else if (p2 <= 40 && p1 < 40)
-		//	score = (p1 + "-" + p2);
-		
-		//else if (p1 == 40 && p2 == 40)
-		//	score = ("deuce");
-		
-		//else if (p1 > 40 && p2 == 40)
-		//	score = ("advantage player 1");
-
-		//else if (p2 > 40 && p1 == 40)
-		//	score = ("advantage player 2");				
-				
-		// "advantage player1"
-		// "advantage player2"
-		// "game player1"
-		// "game player2"
-
-		// TO BE IMPLEMENTED
-		*/
-		return score;
 	}
 	
+	
+	//here we check, if the game is deuce (40-40, ...)
+	private boolean deuce(){
+		return p1 >= 3 && p1 == p2;
+	}
+	
+	//here we check, if the either of players have advantage
+	private boolean advantage(){
+		//I use this scoreFlag to report, which player has the advantage
+		scoreFlag = 0;
+		if(p1 >= 4 && p1 == p2+1){
+			scoreFlag = 1;
+			return true;
+		}
+		if(p2 >= 4 && p2 == p1+1){
+			scoreFlag = 2;
+			return true;
+		}
+		return false;
+	}
+	
+	//boolean method to check end game conditions
 	public boolean gameEnd() {
-		System.out.println("After every point we check if there is a winner");
+		if(p1 >= 4 && p1 >= p2+2){
+			winner = 1;
+			return true;
+		}
+		if(p2 >= 4 && p2 >= p1+2){
+			winner = 2;
+			return true;
+		}
 		return false;
 	}
 
+	public String scoreBoard(int abc){
+		//System.out.println("abc:"+abc);
+		switch(abc){
+			case 0: score = "love";
+					break;
+			case 1: score = "fifteen";
+					break;
+			case 2: score = "thirty";
+					break;
+			case 3: score = "forty";
+					break;
+		}
+		return score;
+	}
+	
+	//setter for name1
+	public void setPlayer1(String player1){
+		this.player1 = player1;
+	}
+
+	//and name2
+	public void setPlayer2(String player2){
+		this.player2 = player2;
+	}	
+	
+	//getter for name1
+	public String getPlayer1(){
+		return (player1);
+	}
+	
+	//and name2
+	public String getPlayer2(){
+		return (player2);
+	}	
 }
