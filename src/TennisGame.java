@@ -17,38 +17,50 @@ public class TennisGame {
 
 	public String getScore() {
 		System.out.println("I am method for displaying score");
-		Random rand = new Random();
-		int  n = rand.nextInt(2) + 1;
+		Random randomTennis = new Random();
+		System.out.println("I formated randomTennis");
+		int  n = randomTennis.nextInt(2) + 1;
+		System.out.println("I generated n");
 		if(n<2)
 		{
+			System.out.println("Player 1 got a point");
 			p1=p1+1;
 			if(p1==1)
 			{
-				actual1=15;
+				setActual1(15);
 			}
-			if(p2==2)
+			if(p1==2)
 			{
-				actual1=30;
+				setActual1(30);
 			}
-			if(p2==3)
+			if(p1==3)
 			{
-				actual1=40;
+				setActual1(40);
+			}
+			if(p1==4&&p2<3)
+			{
+				System.out.println("Player 1 wins");
 			}
 		}
 		else
 		{
 			p2=p2+1;
+			System.out.println("Player 2 got a point");
 			if(p2==1)
 			{
-				actual2=15;
+				setActual2(15);
 			}
 			if(p2==2)
 			{
-				actual2=30;
+				setActual2(30);
 			}
 			if(p2==3)
 			{
-				actual2=40;
+				setActual2(40);
+			}
+			if(p2==4&&p1<3)
+			{
+				System.out.println("Player 2 wins");
 			}
 		}
 		// Here is the format of the scores: "player1Score - player2Score"
@@ -68,5 +80,29 @@ public class TennisGame {
 
 		// TO BE IMPLEMENTED
 		return "";
+	}
+
+	public int getActual1() {
+		return actual1;
+	}
+
+	public void setActual1(int actual1) {
+		this.actual1 = actual1;
+	}
+
+	public int getActual2() {
+		return actual2;
+	}
+
+	public void setActual2(int actual2) {
+		this.actual2 = actual2;
+	}
+
+	public int getScoreFlag() {
+		return scoreFlag;
+	}
+
+	public void setScoreFlag(int scoreFlag) {
+		this.scoreFlag = scoreFlag;
 	}
 }
