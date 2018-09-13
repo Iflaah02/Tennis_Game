@@ -1,13 +1,13 @@
-
 public class TennisGame {
 	
 	private int p1;
 	private int p2;
-	private int scoreFlag;
+	// if used, this was probably meant to use for advantage, but had a different approach int scoreFlag;
 	
 	public TennisGame() {
 		// TO BE IMPLEMENTED
-		System.out.println("I am constructor");
+		p1=0;
+		p2=0;
 		
 	}
 
@@ -39,17 +39,14 @@ public class TennisGame {
 		if (b == 1) b=15;
 		if (b == 2) b=30;
 		if (b == 3) b=40;
-		System.out.println("\nplayer1Score - player2Score\n");
-		if (p1 < 4 && p2 <4) System.out.println(a+" - "+b);
-		if (p1 == p2) System.out.println(" deuce");
+		System.out.println("\nplayer1Score - player2Score");
+		if (p1 != p2 && p1 < 4 && p2 <4) System.out.println(a+"      -      "+b);
+		if (p1 == p2) System.out.print(a + "        -       " + b + " deuce\n");
 		
 		//ing advantage
-		if (p1 == 4 && p2 ==3) System.out.println("Advantage player 1");
-		if (p2 == 4 && p1 ==3) System.out.println("Advantage player 2");
-			
+		if (p1 == 4 && p2 ==3) System.out.println("Advantage player 1 ");
+		if (p2 == 4 && p1 ==3) System.out.println("Advantage player 2 ");
 		
-		if(p1 == 5) System.out.println("\nPlayer 1 wins the game\n");
-		if(p2 == 5) System.out.println("\nPlayer 2 wins the game\n");
 		// "15 - 15"
 		// "30 - 30"
 		// "deuce"
@@ -63,7 +60,7 @@ public class TennisGame {
 		// "game player1"
 		// "game player2"
 
-		// TO BE IMPLEMENTED
+		
 		return "";
 	}
 }
