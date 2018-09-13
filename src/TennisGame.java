@@ -13,22 +13,104 @@ public class TennisGame {
 
 	public String getScore() {
 		System.out.println("I am method for displaying score");
-		// Here is the format of the scores: "player1Score - player2Score"
-		// "0 - 0"
-		// "15 - 15"
-		// "30 - 30"
-		// "deuce"
-		// "15 - 0", "0 - 15"
-		// "30 - 0", "0 - 30"
-		// "40 - 0", "0 - 40"
-		// "30 - 15", "15 - 30"
-		// "40 - 15", "15 - 40"
-		// "advantage player1"
-		// "advantage player2"
-		// "game player1"
-		// "game player2"
+		switch (p1) {
+            case 0:  
+					switch (p2) {
+						case 0: System.out.println("0 - 0");
+								break;
+						case 1: System.out.println("0 - 15");
+								break;
+						case 2: System.out.println("0 - 30");
+								break;
+						case 3: System.out.println("0 - 40");
+								break;
+						case 4: System.out.println("player2 win the game");
+								break;
+						default: System.out.println("player2 invalid score");
+								break;
+					}
+					break;
+            case 1:  
+					switch (p2) {
+						case 0: System.out.println("15 - 0");
+								break;
+						case 1: System.out.println("15 - 15");
+								break;
+						case 2: System.out.println("15 - 30");
+								break;
+						case 3: System.out.println("15 - 40");
+								break;
+						case 4: System.out.println("player2 win the game");
+								break;
+						default: System.out.println("player2 invalid score");
+								break;
+					}
+					break;
+            case 2:  
+					switch (p2) {
+						case 0: System.out.println("30 - 0");
+								break;
+						case 1: System.out.println("30 - 15");
+								break;
+						case 2: System.out.println("30 - 30");
+								break;
+						case 3: System.out.println("30 - 40");
+								break;
+						case 4: System.out.println("player2 win the game");
+								break;
+						default: System.out.println("player2 invalid score");
+								break;
+					}
+					break;
+            case 3:  
+					switch (p2) {
+						case 0: System.out.println("40 - 0");
+								break;
+						case 1: System.out.println("40 - 15");
+								break;
+						case 2: System.out.println("40 - 30");
+								break;
+						case 3: System.out.println("deuce");
+								break;
+						case 4: System.out.println("advantage player2");
+								break;
+						case 5: System.out.println("player2 win the game");
+								break;
+						default: System.out.println("player2 invalid score");
+								break;
+					}
+					break;
+            case 4:  
+					switch (p2) {
+						case 0: System.out.println("player1 win the game");
+								break;
+						case 1: System.out.println("player1 win the game");
+								break;
+						case 2: System.out.println("player1 win the game");
+								break;
+						case 3: System.out.println("advantage player1");
+								break;
+						case 4: System.out.println("deuce");
+								p1--;
+								p2--;
+								break;
+						default: System.out.println("player2 invalid score");
+								break;
+					}
+					break;
+            case 5:  
+					switch (p2) {
+						case 3: System.out.println("player1 win the game");
+								break;
+						default: System.out.println("player2 invalid score");
+								break;
+					}
+					break;
+            default: System.out.println("player1 invalid score");
+                     break;
+		}			 
 
-		// TO BE IMPLEMENTED
 		return "";
 	}
+	
 }
