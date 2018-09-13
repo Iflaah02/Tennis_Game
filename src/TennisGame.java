@@ -22,10 +22,10 @@ public class TennisGame {
 
 		System.out.println (p1 + " - " + p2 );	
 		
-		int p1  = 0;
-		int p2 = 0;	
+	//	int p1  = 0;
+	//	int p2 = 0;	
 		
-		System.out.println (p1);
+	
 		 p1=+p1+piste;
 		 p2=+p2+piste;
 		
