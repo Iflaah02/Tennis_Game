@@ -3,7 +3,7 @@ public class TennisGame {
 	
 	private int p1;
 	private int p2;
-	private int scoreFlag;
+	private int scoreFlag = 0;
 	
 	public TennisGame() {
 		// TO BE IMPLEMENTED
@@ -14,9 +14,17 @@ public class TennisGame {
 	}
 	
 	public void updateScore() {
-		p1++;
+		if(Math.random() < 0.5) {
+			p1++;
+		}else {
+			p2++;
+		}
 	}
 
+	public int flag() {
+		return scoreFlag;
+	}
+	
 	public String getScore() {
 		System.out.println("The score is:");
 		
@@ -33,6 +41,7 @@ public class TennisGame {
 					case 3:
 							return "0 - 40";
 					case 4:
+							scoreFlag = 1;
 							return "game player2";	
 					}
 					break;
@@ -48,6 +57,7 @@ public class TennisGame {
 					case 3:
 							return "15 - 40";
 					case 4:
+							scoreFlag = 1;
 							return "game player2";
 					
 					}
@@ -64,6 +74,7 @@ public class TennisGame {
 					case 3:
 						return "30 - 40";
 					case 4:
+						scoreFlag = 1;
 						return "game player2";
 			
 					}
@@ -88,12 +99,16 @@ public class TennisGame {
 			case 4:
 					switch (p2) {
 					case 0:
+						scoreFlag = 1;
 						return "game player1";
 					case 1:
+						scoreFlag = 1;
 						return "game player1";
 					case 2:
+						scoreFlag = 1;
 						return "game player1";
 					case 3:
+						scoreFlag = 1;
 						return "game player1";
 					case 4:
 						return "deuce";
