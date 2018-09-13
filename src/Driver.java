@@ -7,7 +7,7 @@ public class Driver {
 		TennisGame play = new TennisGame();
 		
 		//variable for random number, which will be either 1 or 2
-		int point;
+		int point = 0;
 		
 		//I use random for 'game engine'
 		//java.util.Random is needed for this
