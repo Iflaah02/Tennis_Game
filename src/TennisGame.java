@@ -3,7 +3,7 @@ public class TennisGame {
 	
 	private int p1;
 	private int p2;
-	private int scoreFlag;
+	private int scoreFlag = 4;
 	
 	public TennisGame() {
 		// TO BE IMPLEMENTED
