@@ -1,34 +1,78 @@
 
 public class TennisGame {
 	
-	private int p1;
-	private int p2;
-	private int scoreFlag;
+	private int p1, p2; 							//player scores
+	private String player1, player2;				//player score display
+	private String playerAdvantage;					//player who is winning
 	
 	public TennisGame() {
-		// TO BE IMPLEMENTED
-		System.out.println("I am constructor");
+		p1=0;
+		p2=0;
+		player1 = "love";
+		player2 = "love";
 		
 	}
 
-	public String getScore() {
-		System.out.println("I am method for displaying score");
-		// Here is the format of the scores: "player1Score - player2Score"
-		// "0 - 0"
-		// "15 - 15"
-		// "30 - 30"
-		// "deuce"
-		// "15 - 0", "0 - 15"
-		// "30 - 0", "0 - 30"
-		// "40 - 0", "0 - 40"
-		// "30 - 15", "15 - 30"
-		// "40 - 15", "15 - 40"
-		// "advantage player1"
-		// "advantage player2"
-		// "game player1"
-		// "game player2"
+	public boolean getScore() {
 
-		// TO BE IMPLEMENTED
-		return "";
-	}
+		if (p1==0 && p2==0) {
+			System.out.println("love - love");
+			return false;
+		}else if (p1==3 && p2 ==3) {
+			System.out.println("deuce");
+			return false;
+		}else if ((p1==3 && p2==4) || (p1==4 && p2==3)) {
+			System.out.println("adv " + playerAdvantage);
+			return false;
+		} else if (p1<4 && p2<4){
+			System.out.println(player1 +  " - " + player2);
+			return false;
+		}else
+			System.out.println(playerAdvantage + " wins");
+		return true;
+	} //getScore
+
+	public void update(int player) {
+
+		if (player == 1){
+
+			if (p2==4){
+				p2--;
+
+			}else if (p1 < 5){
+				p1++;
+
+				if (p1==1){
+					player1 = "15";
+				}else if (p1==2){
+					player1 = "30";
+				}else if (p1==3){
+					player1 = "40";
+				}else if (p1==4){
+					playerAdvantage = "p1";
+				}
+			} // if player == 1
+
+		} else /*player == 2*/{
+
+			if (p1==4){
+				p1--;
+			} else if (p2 < 5) {
+				p2++;
+
+				if (p2==1){
+					player2 = "15";
+				}else if (p2==2){
+					player2 = "30";
+				}else if (p2==3){
+					player2 = "40";
+				}else if (p2==4){
+					playerAdvantage = "p2";
+				}
+			}
+		} // if player == 2
+
+
+
+	} //update
 }
