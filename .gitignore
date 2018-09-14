@@ -4,3 +4,5 @@
 .project
 .classpath
 
+## Excludes the generated files
+bin/

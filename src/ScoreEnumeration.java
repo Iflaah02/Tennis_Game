@@ -11,19 +11,42 @@
  */
 public enum ScoreEnumeration {
 
-    Love(0),
-    Fifteen(15),
-    Thirty(30),
-    Forty(40),
-    Advance(41);
+    LOVE(0, "Love"),
+    FIFTEEN(15, "15"),
+    THIRTY(30, "30"),
+    FORTY(40, "40"),
+    ADVANCE(41, "Advance");
 
-    private final int score;
+    private final int scoreInt;
+    private final String scoreText;
 
-    ScoreEnumeration(int score){
-        this.score = score;
+    /**
+     * ScoreEnumeration
+     * The Constructor class
+     * @param scoreInt - The score is numbers
+     * @param scoreText - The score as a String
+     */
+    ScoreEnumeration(int scoreInt, String scoreText){
+        this.scoreInt = scoreInt;
+        this.scoreText = scoreText;
+
     }
 
-    public int getScore() {
-        return score;
+    /**
+     * getScoreInt
+     * Returns the int value of the score
+     * @return scoreInt - The given score
+     */
+    public int getScoreInt() {
+        return scoreInt;
+    }
+
+    /**
+     * getScoreText
+     * Returns the String value of the score
+     * @return scoreText
+     */
+    public String getScoreText() {
+        return scoreText;
     }
 }
