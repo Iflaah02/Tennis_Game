@@ -11,12 +11,11 @@ public class TennisGame {
 		System.out.println("1 = point to player1");
 		System.out.println("2 = point to player2");
 		System.out.println("0 = End Game");
-		
+		System.out.println("5 = New Game");
 	}
 
 	public String getScore() {
 		//System.out.println("I am method for displaying score");
-
 
 		if(scoreFlag == 1) {
 			resetPoints();
@@ -25,7 +24,7 @@ public class TennisGame {
 		
 		if (hasWinner()) {
 			scoreFlag = 1;
-			return playerWithHighestScore() + " wins. Press any key and Enter to start new game";
+			return playerWithHighestScore() + " wins. Press key 5 and Enter to start new game";
 		}
 		
 		if (hasAdvantage()) { 
@@ -77,7 +76,10 @@ public class TennisGame {
 	public void p2s() {
 		p2++;
 	}
-	
+	public void p5s() {
+		p1=0;
+		p2=0;
+	}
 	public void resetPoints() {
 		p1=0;
 		p2=0;

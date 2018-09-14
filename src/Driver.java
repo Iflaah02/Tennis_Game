@@ -4,6 +4,9 @@ public class Driver {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		boolean running = true;
+		
+		
+		
 		Scanner scan= new Scanner(System.in);
 
 	    //For string
@@ -16,8 +19,7 @@ public class Driver {
 	  
 	    
 		TennisGame play = new TennisGame();
-		while(running) {
-		
+		while(running) {	
 			readed= scan.nextInt();
 			System.out.println(readed);
 		if (readed == 1) {
@@ -34,7 +36,10 @@ public class Driver {
 			running = false;
 			System.out.println("Game end");
 		}
-		
+		if (readed == 5) {
+			play.p5s();
+			System.out.println(play.getScore());
+		}
 		
 		}
 	}
