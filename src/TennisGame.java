@@ -40,6 +40,7 @@ public class TennisGame {
 			p1=+p1+piste-5; //30
 			p2=+p2+piste-5;  //30
 		System.out.println ("Deuce" );
+		
 				
 					System.out.println (p1 + " - " + p2 );
 					// System.out.println ("Deuce" );
