@@ -7,16 +7,11 @@ public class Driver {
 		int i = 0;
 		int j = 0;
 		int k = 0;
-		while (i < 4) {
-			System.out.println("" +j +" - " +k);
-			j = play.getScore();
-			play.setp1(j);
-			k = play.getScore();
-			play.setp2(k);
-			
-			i++;
+		
+                while (i < 9) {
+			play.getScore();
+                        i++;
 		}
 	}
 }
-
 
