@@ -1,139 +1,86 @@
-import java.util.Scanner;
-
 public class TennisGame {
-	
-	private int p1Score = 0;
-	private int p2Score = 0;
-	private String p1Name="eka";
-	private String p2Name="toka";
-	
-	
-	
-public TennisGame() {
-	super();
-		this.p1Score = p1Score;
-		this.p2Score = p2Score;
-		this.p1Name = p1Name;
-		this.p2Name = p2Name;
+
+	private int p1;
+	private int p2;
+	private int scoreFlag = 0;
+
+	public TennisGame() {
+		p1 = 0;
+		p2 = 0;
+		System.out.println("1 = player1 scores");
+		System.out.println("2 = player2 scores");
 	}
 
-public String getScore() {
-
-	if (hasWinner()) {
-		return playerWithHighestScore() + " wins";
+	public String selostus() {
+		if (scoreFlag == 1) {
+			resetti();
+			scoreFlag = 0;
+		}
+		if (tilanneDeuce()) {
+			return "deuce";
+		}
+		if (keulii()) {
+			return "advantage " + johdossaOleva();
+		}
+		if (peliRatkesi()) {
+			scoreFlag = 1;
+			return "game " + johdossaOleva();
+		}
+		return tilanneKaannos(p1) + " - " + tilanneKaannos(p2);
 	}
-	
-	if (hasAdvantage()) { 
-		return "Advantage " + playerWithHighestScore(); 
+
+	public void ekallePojo() {
+		p1++;
 	}
-	
-	if (isDeuce())
-		return "Deuce";
-	
-	if(p1Score == p2Score) {
-		return translateScore(p1Score) + " all";
+
+	public void tokallePojo() {
+		p2++;
 	}
-	
-	return translateScore(p1Score) + "," + translateScore(p2Score);
-}
 
-private boolean isDeuce() {
-	return p1Score >= 3 && p2Score == p1Score;
-}
-
-private String playerWithHighestScore() {
-	if (p1Score > p2Score) {
-		return p1Name;
-	} else {
-		return p2Name;
+	private String tilanneKaannos(int score) {
+		switch (score) {
+		case 3:
+			return "40";
+		case 2:
+			return "30";
+		case 1:
+			return "15";
+		case 0:
+			return "Love";
+		}
+		return null;
 	}
-	System.out.print("change3");
-}
 
-private boolean hasWinner() {
-	if(p2Score >= 4 && p2Score >= p1Score + 2 )
-		return true;
-	if(p1Score >= 4 && p1Score >= p2Score + 2)
-		return true;
-	return false;
-}
-
-private boolean hasAdvantage() {
-	if (p2Score >= 4 && p2Score == p1Score + 1)
-		return true;
-	if (p1Score >= 4 && p1Score == p2Score + 1)
-		return true;
-	
-	return false;
-
-}
-
-public void p1Scores() {
-	p1Score++;
-}
-
-public void p2Scores() {
-	p2Score++;
-}
-
-private String translateScore(int score) {
-	switch (score) {
-	case 3:
-		return "Forty";
-	case 2:
-		return "Thirty";
-	case 1: 
-		return "Fifteen";
-	case 0:
-		return "Love";
+	private String johdossaOleva() {
+		if (p1 > p2) {
+			return "player1";
+		} else {
+			return "player2";
+		}
 	}
-	throw new IllegalArgumentException("Illegal score: " + score);
-}
 
+	private boolean tilanneDeuce() {
+		return p1 >= 3 && p2 == p1;
+	}
 
-//	public TennisGame(String p1Name, String p2Name) {
-//		this.p1Name = p1Name;
-//		this.p2Name = p2Name;
-//	}
-	
-	
-	//public TennisGame() {
-		// TO BE IMPLEMENTED
-		// jebujee
-		/*Wii Tennis 
-A game is won by the first player to have won at least four points in total and at least two points more than the opponent. 
-The running score of each game is described in a manner peculiar to tennis: scores from zero to three points are described as 
-"love", "fifteen", "thirty", and "forty" respectively. 
-If at least three points have been scored by each player, and the scores are equal, the score is "deuce". 
-If at least three points have been scored by each side and a player has one more point than his opponent, 
-the score of the game is "advantage" for the player in the lead
-*/
-		
-		
-		
-		
-		
-		
-	//}
+	private boolean keulii() {
+		if (p2 >= 4 && p2 == p1 + 1)
+			return true;
+		if (p1 >= 4 && p1 == p2 + 1)
+			return true;
+		return false;
+	}
 
-	//////public String getScore() {
-		//System.out.println("I am method for displaying score");
-		// Here is the format of the scores: "player1Score - player2Score"
-		// "0 - 0"
-		// "15 - 15"
-		// "30 - 30"
-		// "deuce"
-		// "15 - 0", "0 - 15"
-		// "30 - 0", "0 - 30"
-		// "40 - 0", "0 - 40"
-		// "30 - 15", "15 - 30"
-		// "40 - 15", "15 - 40"
-		// "advantage player1"
-		// "advantage player2"
-		// "game player1"
-		// "game player2"
+	private boolean peliRatkesi() {
+		if (p2 >= 4 && p2 >= p1 + 2)
+			return true;
+		if (p1 >= 4 && p1 >= p2 + 2)
+			return true;
+		return false;
+	}
 
-		// TO BE IMPLEMENTED
-//		return "";
-//	}
+	public void resetti() {
+		p1 = 0;
+		p2 = 0;
+	}
 }
