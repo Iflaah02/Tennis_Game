@@ -27,7 +27,7 @@ public class TennisGame {
 		// "advantage player2"
 		// "game player1"
 		// "game player2"
-
+		System.out.println("jakke test 1");
 		// TO BE IMPLEMENTED
 		return "";
 	}
